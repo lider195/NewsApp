@@ -7,4 +7,5 @@ struct News: Codable {
     var url: String?
     var urlToImage: String?
     var date: String?
+    
 }
