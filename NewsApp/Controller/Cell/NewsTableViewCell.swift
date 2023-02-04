@@ -4,7 +4,7 @@ final class NewsTableViewCell: UITableViewCell {
     // MARK: - Properties
     // MARK: Public
     static let identifier = "NewsTableViewCell"
-    var nameLabel = UILabel()
+    var titleLabel = UILabel()
     var dataLabel = UILabel()
     var informationImage = UIImageView()
     // MARK: Private
@@ -30,7 +30,7 @@ final class NewsTableViewCell: UITableViewCell {
         contentView.addSubview(view)
         contentView.addSubview(whiteView)
         contentView.addSubview(informationImage)
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(titleLabel)
         contentView.addSubview(dataLabel)
     }
 
@@ -51,11 +51,11 @@ final class NewsTableViewCell: UITableViewCell {
         whiteView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
         whiteView.leadingAnchor.constraint(equalTo: informationImage.trailingAnchor, constant: 0).isActive = true
         whiteView.trailingAnchor.constraint(equalTo: informationImage.trailingAnchor, constant: 0).isActive = true
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-        nameLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: 15).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: 15).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15).isActive = true
         dataLabel.translatesAutoresizingMaskIntoConstraints = false
         dataLabel.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -10).isActive = true
         dataLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
@@ -64,12 +64,12 @@ final class NewsTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
-        nameLabel.numberOfLines = 4
-        nameLabel.textColor = .black
-        nameLabel.textAlignment = .center
-        nameLabel.font = .systemFont(ofSize: 30)
-        nameLabel.adjustsFontSizeToFitWidth = true
-        nameLabel.minimumScaleFactor = 0.3
+        titleLabel.numberOfLines = 4
+        titleLabel.textColor = .black
+        titleLabel.textAlignment = .center
+        titleLabel.font = .systemFont(ofSize: 30)
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.3
         dataLabel.textAlignment = .center
         dataLabel.textColor = .gray
         dataLabel.font = .systemFont(ofSize: 15)
@@ -78,7 +78,6 @@ final class NewsTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         informationImage.layer.cornerRadius = 15
         informationImage.layer.masksToBounds = true
-        informationImage.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 16
         view.layer.masksToBounds = true
         view.layer.shadowColor = .init(gray: 1, alpha: 0.5)

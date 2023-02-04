@@ -30,7 +30,7 @@ final class NewsInformationViewController: UIViewController {
 
     // MARK: - Setups
     private func addSubViews() {
-        view.addSubview(imageView)
+        whiteView.addSubview(imageView)
         view.addSubview(presentationScrollView)
         presentationScrollView.addSubview(whiteView)
         whiteView.addSubview(titleLabel)
@@ -40,7 +40,7 @@ final class NewsInformationViewController: UIViewController {
 
     private func setupConstrains() {
         presentationScrollView.translatesAutoresizingMaskIntoConstraints = false
-        presentationScrollView.topAnchor.constraint(equalTo: imageView.bottomAnchor,
+        presentationScrollView.topAnchor.constraint(equalTo: view.topAnchor,
                                                     constant: 0).isActive = true
         presentationScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         presentationScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
@@ -54,16 +54,16 @@ final class NewsInformationViewController: UIViewController {
         whiteView.widthAnchor.constraint(equalTo: presentationScrollView.widthAnchor, multiplier: 1.0).isActive = true
 
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        imageView.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 0).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 0).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: 0).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 350).isActive = true
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: whiteView.topAnchor, constant: 49).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 18).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -18).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        titleLabel.heightAnchor.constraint(equalToConstant: 160).isActive = true
 
         timeLabel.translatesAutoresizingMaskIntoConstraints = false
         timeLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 7).isActive = true
@@ -82,14 +82,14 @@ final class NewsInformationViewController: UIViewController {
         view.backgroundColor = .white
         whiteView.layer.cornerRadius = 20
         whiteView.layer.masksToBounds = true
-        titleLabel.font = .systemFont(ofSize: 30)
+        titleLabel.font = .systemFont(ofSize: 35)
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.minimumScaleFactor = 0.5
         titleLabel.textColor = .black
         titleLabel.numberOfLines = 0
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = .black
-        descriptionLabel.font = .systemFont(ofSize: 17)
+        descriptionLabel.font = .systemFont(ofSize: 20)
     }
 
     // MARK: - Helpers
