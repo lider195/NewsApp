@@ -61,7 +61,6 @@ class ApiManager: NSObject, XMLParserDelegate {
             if link != "" {
                 elements.setObject(link, forKey: "link" as NSCopying)
             }
-            
             if descriptions != "" {
                 elements.setObject(descriptions, forKey: "description" as NSCopying)
             }
