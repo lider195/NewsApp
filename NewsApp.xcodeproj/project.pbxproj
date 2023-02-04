@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDB80C15298D8D4300ED5596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C14298D8D4300ED5596 /* News.swift */; };
+		DDB80C1A298D8E2100ED5596 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C19298D8E2100ED5596 /* ApiManager.swift */; };
+		DDB80C22298DAB1000ED5596 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C21298DAB1000ED5596 /* NewsTableViewCell.swift */; };
+		DDC29F72298D820900505342 /* AllNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC29F71298D820900505342 /* AllNewsViewController.swift */; };
+		DDC29F74298D825100505342 /* NewsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC29F73298D825100505342 /* NewsInformationViewController.swift */; };
 		DDE72FAB298D7A5000C3255B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE72FAA298D7A5000C3255B /* AppDelegate.swift */; };
 		DDE72FAD298D7A5000C3255B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE72FAC298D7A5000C3255B /* SceneDelegate.swift */; };
-		DDE72FAF298D7A5000C3255B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE72FAE298D7A5000C3255B /* ViewController.swift */; };
-		DDE72FB2298D7A5000C3255B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE72FB0298D7A5000C3255B /* Main.storyboard */; };
 		DDE72FB5298D7A5000C3255B /* NewsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DDE72FB3298D7A5000C3255B /* NewsApp.xcdatamodeld */; };
 		DDE72FB7298D7A5100C3255B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDE72FB6298D7A5100C3255B /* Assets.xcassets */; };
 		DDE72FBA298D7A5100C3255B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDE72FB8298D7A5100C3255B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDB80C14298D8D4300ED5596 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		DDB80C19298D8E2100ED5596 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		DDB80C21298DAB1000ED5596 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		DDC29F71298D820900505342 /* AllNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNewsViewController.swift; sourceTree = "<group>"; };
+		DDC29F73298D825100505342 /* NewsInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInformationViewController.swift; sourceTree = "<group>"; };
 		DDE72FA7298D7A5000C3255B /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDE72FAA298D7A5000C3255B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDE72FAC298D7A5000C3255B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDE72FAE298D7A5000C3255B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDE72FB1298D7A5000C3255B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDE72FB4298D7A5000C3255B /* NewsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsApp.xcdatamodel; sourceTree = "<group>"; };
 		DDE72FB6298D7A5100C3255B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDE72FB9298D7A5100C3255B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +45,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDC29F6C298D817700505342 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDC29F75298D828600505342 /* Cell */,
+				DDC29F71298D820900505342 /* AllNewsViewController.swift */,
+				DDC29F73298D825100505342 /* NewsInformationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDC29F6D298D818300505342 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDE72FB8298D7A5100C3255B /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DDC29F6E298D819000505342 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDB80C14298D8D4300ED5596 /* News.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDC29F6F298D81D100505342 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				DDB80C19298D8E2100ED5596 /* ApiManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		DDC29F70298D81E000505342 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DDC29F75298D828600505342 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DDB80C21298DAB1000ED5596 /* NewsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		DDE72F9E298D7A5000C3255B = {
 			isa = PBXGroup;
 			children = (
@@ -58,12 +113,14 @@
 		DDE72FA9298D7A5000C3255B /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDC29F70298D81E000505342 /* Extension */,
+				DDC29F6F298D81D100505342 /* Manager */,
+				DDC29F6E298D819000505342 /* Model */,
+				DDC29F6D298D818300505342 /* View */,
+				DDC29F6C298D817700505342 /* Controller */,
 				DDE72FAA298D7A5000C3255B /* AppDelegate.swift */,
 				DDE72FAC298D7A5000C3255B /* SceneDelegate.swift */,
-				DDE72FAE298D7A5000C3255B /* ViewController.swift */,
-				DDE72FB0298D7A5000C3255B /* Main.storyboard */,
 				DDE72FB6298D7A5100C3255B /* Assets.xcassets */,
-				DDE72FB8298D7A5100C3255B /* LaunchScreen.storyboard */,
 				DDE72FBB298D7A5100C3255B /* Info.plist */,
 				DDE72FB3298D7A5000C3255B /* NewsApp.xcdatamodeld */,
 			);
@@ -86,6 +143,8 @@
 			dependencies = (
 			);
 			name = NewsApp;
+			packageProductDependencies = (
+			);
 			productName = NewsApp;
 			productReference = DDE72FA7298D7A5000C3255B /* NewsApp.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +173,8 @@
 				Base,
 			);
 			mainGroup = DDE72F9E298D7A5000C3255B;
+			packageReferences = (
+			);
 			productRefGroup = DDE72FA8298D7A5000C3255B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,7 +191,6 @@
 			files = (
 				DDE72FBA298D7A5100C3255B /* LaunchScreen.storyboard in Resources */,
 				DDE72FB7298D7A5100C3255B /* Assets.xcassets in Resources */,
-				DDE72FB2298D7A5000C3255B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +201,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDE72FAF298D7A5000C3255B /* ViewController.swift in Sources */,
+				DDB80C15298D8D4300ED5596 /* News.swift in Sources */,
 				DDE72FAB298D7A5000C3255B /* AppDelegate.swift in Sources */,
+				DDC29F72298D820900505342 /* AllNewsViewController.swift in Sources */,
+				DDB80C22298DAB1000ED5596 /* NewsTableViewCell.swift in Sources */,
+				DDB80C1A298D8E2100ED5596 /* ApiManager.swift in Sources */,
 				DDE72FB5298D7A5000C3255B /* NewsApp.xcdatamodeld in Sources */,
+				DDC29F74298D825100505342 /* NewsInformationViewController.swift in Sources */,
 				DDE72FAD298D7A5000C3255B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +215,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDE72FB0298D7A5000C3255B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DDE72FB1298D7A5000C3255B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DDE72FB8298D7A5100C3255B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +352,6 @@
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +379,6 @@
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
