@@ -22,8 +22,6 @@ class ApiManager: NSObject, XMLParserDelegate {
 
     func startParse() {
 
-       
-
         feeds = []
         parser = XMLParser(contentsOf: URL(string: url)!)!
         parser.delegate = self
