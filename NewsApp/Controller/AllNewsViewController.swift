@@ -7,28 +7,30 @@ final class AllNewsViewController: UIViewController {
     private let newsTableView = UITableView()
     private let logoLabel = UILabel()
     private var url: URL!
-    private var myFeed: NSArray = []
-    private var feedImgs: [AnyObject] = []
+    private var newsArray: [News] = [] {
+        didSet {
+            newsTableView.reloadData()
+        }
+    }
+
+    private var shareImage: [AnyObject] = []
     private let refreshControl = UIRefreshControl()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRss()
         addSubView()
         setupTableView()
         setupConstrains()
         setupView()
         addTarget()
+        loadRss()
     }
 
     // MARK: - API
-    func loadRss() {
-        let myParser = ApiManager().initWithURL() as! ApiManager
-
-        feedImgs = myParser.img
-        myFeed = myParser.feeds
-
-        print("\(myParser.title)")
+    private func loadRss() {
+        let parser = ApiManager.shared.initWithURL() as! ApiManager
+        shareImage = parser.img
+        newsArray = parser.news
         newsTableView.reloadData()
     }
 
@@ -39,7 +41,7 @@ final class AllNewsViewController: UIViewController {
     }
 
     private func addTarget() {
-        refreshControl.addTarget(self, action: #selector(doSomething), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(toRefresh), for: .valueChanged)
     }
 
     private func setupTableView() {
@@ -72,7 +74,7 @@ final class AllNewsViewController: UIViewController {
 
     // MARK: - Helpers
 
-    @objc func doSomething(refreshControl: UIRefreshControl) {
+    @objc func toRefresh(refreshControl: UIRefreshControl) {
 
         loadRss()
         newsTableView.reloadData()
@@ -82,19 +84,20 @@ final class AllNewsViewController: UIViewController {
 
 extension AllNewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        myFeed.count
+        newsArray.count
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let url = NSURL(string: feedImgs[indexPath.row] as! String)
+        let url = NSURL(string: shareImage[indexPath.row] as! String)
         let newsInformation = NewsInformationViewController()
-        newsInformation.titleLabel.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
-        newsInformation.descriptionLabel.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "description") as? String
+        newsInformation.titleLabel.text = newsArray[indexPath.row].title
+        newsInformation.descriptionLabel.text = newsArray[indexPath.row].description
         let data = NSData(contentsOf: url! as URL)
         let image = UIImage(data: data! as Data)
         newsInformation.imageView.image = image
-        newsInformation.timeLabel.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
+        newsInformation.timeLabel.text = newsArray[indexPath.row].date
+
         navigationController?.pushViewController(newsInformation, animated: true)
     }
 
@@ -102,13 +105,12 @@ extension AllNewsViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: NewsTableViewCell.identifier,
                                                     for: indexPath) as? NewsTableViewCell
         {
-            let url = NSURL(string: feedImgs[indexPath.row] as! String)
+            let url = NSURL(string: shareImage[indexPath.row] as! String)
             let data = NSData(contentsOf: url! as URL)
             let image = UIImage(data: data! as Data)
-
-            cell.nameLabel.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "title") as? String
+            cell.titleLabel.text = newsArray[indexPath.row].title
+            cell.dataLabel.text = newsArray[indexPath.row].date
             cell.informationImage.image = image
-            cell.dataLabel.text = (myFeed.object(at: indexPath.row) as AnyObject).object(forKey: "pubDate") as? String
 
             if indexPath.row % 2 == 0 {
                 cell.backgroundColor = UIColor(white: 1, alpha: 0)
