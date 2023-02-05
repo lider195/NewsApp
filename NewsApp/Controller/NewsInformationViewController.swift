@@ -4,14 +4,14 @@ final class NewsInformationViewController: UIViewController {
 
     // MARK: - Properties
     // MARK: Public
-    let imageView = UIImageView()
-    let titleLabel = UILabel()
-    let timeLabel = UILabel()
-    let descriptionLabel = UILabel()
 
     // MARK: Private
     private let whiteView = UIView()
     private let presentationScrollView = UIScrollView()
+    private let imageView = UIImageView()
+    private let titleLabel = UILabel()
+    private let timeLabel = UILabel()
+    private let descriptionLabel = UILabel()
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +27,12 @@ final class NewsInformationViewController: UIViewController {
     }
 
     // MARK: - API
+    func set(_ title: String, _ date: String, _ image: UIImage, _ description: String) {
+        titleLabel.text = title
+        timeLabel.text = date
+        imageView.image = image
+        descriptionLabel.text = description
+    }
 
     // MARK: - Setups
     private func addSubViews() {

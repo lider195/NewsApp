@@ -10,6 +10,7 @@
 		DDB80C15298D8D4300ED5596 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C14298D8D4300ED5596 /* News.swift */; };
 		DDB80C1A298D8E2100ED5596 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C19298D8E2100ED5596 /* ApiManager.swift */; };
 		DDB80C22298DAB1000ED5596 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C21298DAB1000ED5596 /* NewsTableViewCell.swift */; };
+		DDB80C24298FD10800ED5596 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB80C23298FD10800ED5596 /* CoreDataManager.swift */; };
 		DDC29F72298D820900505342 /* AllNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC29F71298D820900505342 /* AllNewsViewController.swift */; };
 		DDC29F74298D825100505342 /* NewsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC29F73298D825100505342 /* NewsInformationViewController.swift */; };
 		DDE72FAB298D7A5000C3255B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE72FAA298D7A5000C3255B /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 		DDB80C14298D8D4300ED5596 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		DDB80C19298D8E2100ED5596 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		DDB80C21298DAB1000ED5596 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		DDB80C23298FD10800ED5596 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		DDC29F71298D820900505342 /* AllNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllNewsViewController.swift; sourceTree = "<group>"; };
 		DDC29F73298D825100505342 /* NewsInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsInformationViewController.swift; sourceTree = "<group>"; };
 		DDE72FA7298D7A5000C3255B /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				DDB80C19298D8E2100ED5596 /* ApiManager.swift */,
+				DDB80C23298FD10800ED5596 /* CoreDataManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				DDB80C22298DAB1000ED5596 /* NewsTableViewCell.swift in Sources */,
 				DDB80C1A298D8E2100ED5596 /* ApiManager.swift in Sources */,
 				DDE72FB5298D7A5000C3255B /* NewsApp.xcdatamodeld in Sources */,
+				DDB80C24298FD10800ED5596 /* CoreDataManager.swift in Sources */,
 				DDC29F74298D825100505342 /* NewsInformationViewController.swift in Sources */,
 				DDE72FAD298D7A5000C3255B /* SceneDelegate.swift in Sources */,
 			);

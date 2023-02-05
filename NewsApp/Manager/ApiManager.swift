@@ -9,12 +9,14 @@ class ApiManager: NSObject, XMLParserDelegate {
     var element = String()
     var title = String()
     var link = String()
+    var linkImage = String()
     var img: [AnyObject] = []
     var descriptions = String()
     var date = String()
     var news = [News]()
 
     func initWithURL() -> AnyObject {
+        news.removeAll()
         startParse()
 
         return self
@@ -69,11 +71,10 @@ class ApiManager: NSObject, XMLParserDelegate {
             }
 
             feeds.add(elements)
-
             let new = News(title: title, description: descriptions, url: link, date: date)
-
             news.append(new)
         }
+        
     }
 
     func parser(_ parser: XMLParser, foundCharacters string: String) {

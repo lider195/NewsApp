@@ -4,13 +4,14 @@ final class NewsTableViewCell: UITableViewCell {
     // MARK: - Properties
     // MARK: Public
     static let identifier = "NewsTableViewCell"
-    var titleLabel = UILabel()
-    var dataLabel = UILabel()
-    var informationImage = UIImageView()
+
     // MARK: Private
     private var view = UIView()
     private var whiteView = UIView()
-
+    private var titleLabel = UILabel()
+    private var dataLabel = UILabel()
+    private var informationImage = UIImageView()
+    private var checkNews = Bool()
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -25,6 +26,13 @@ final class NewsTableViewCell: UITableViewCell {
     }
 
     // MARK: - API
+    func set(_ title: String, _ date: String, _ image: UIImage, _ check: Bool) {
+        titleLabel.text = title
+        dataLabel.text = date
+        informationImage.image = image
+        checkNews = check
+    }
+
     // MARK: - Setups
     private func addSubviews() {
         contentView.addSubview(view)
@@ -64,6 +72,9 @@ final class NewsTableViewCell: UITableViewCell {
     }
 
     private func setupUI() {
+        if checkNews {
+            whiteView.backgroundColor = .gray
+        }
         titleLabel.numberOfLines = 4
         titleLabel.textColor = .black
         titleLabel.textAlignment = .center
