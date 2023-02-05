@@ -73,7 +73,7 @@ final class NewsTableViewCell: UITableViewCell {
 
     private func setupUI() {
         if checkNews {
-            whiteView.backgroundColor = .gray
+            whiteView.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
         }
         titleLabel.numberOfLines = 4
         titleLabel.textColor = .black

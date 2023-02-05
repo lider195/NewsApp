@@ -12,10 +12,12 @@ final class AllNewsViewController: UIViewController {
             newsTableView.reloadData()
         }
     }
-
-    private var checkNewsArray: [News] = []
+    private var checkNewsArray: [News] = []{
+        didSet {
+            newsTableView.reloadData()
+        }
+    }
     private var searchArray: [News] = []
-
     private var shareImage: [AnyObject] = []
     private let refreshControl = UIRefreshControl()
     // MARK: - Lifecycle
@@ -28,14 +30,11 @@ final class AllNewsViewController: UIViewController {
         addTarget()
         loadRss()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         guard let news = CoreDataManager.instance.getNewsCheck() else { return }
-//        newsArray = news
         checkNewsArray = news
     }
-
     // MARK: - API
     private func loadRss() {
         let parser = ApiManager.shared.initWithURL() as! ApiManager
@@ -101,7 +100,6 @@ extension AllNewsViewController: UITableViewDelegate, UITableViewDataSource, UIS
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         if search.isActive {
             return searchArray.count
         } else {
@@ -116,22 +114,11 @@ extension AllNewsViewController: UITableViewDelegate, UITableViewDataSource, UIS
         let image = UIImage(data: data as Data)
         let newsInformation = NewsInformationViewController()
         guard let title = newsArray[indexPath.row].title else { return }
-
-//        let title = newsArray[indexPath.row].title ?? ""
         guard let date = newsArray[indexPath.row].date else { return }
         guard let images = (image ?? UIImage(systemName: "icloud.slash")) else { return }
         guard let description = newsArray[indexPath.row].description else { return }
         newsInformation.set(title, date, images, description)
-
-//        newsInformation.titleLabel.text = newsArray[indexPath.row].title
-//        newsInformation.descriptionLabel.text = newsArray[indexPath.row].description
-//        let data = NSData(contentsOf: url! as URL)
-//        let image = UIImage(data: data! as Data)
-//        newsInformation.imageView.image = image
-//        newsInformation.timeLabel.text = newsArray[indexPath.row].date
-
         CoreDataManager.instance.saveCheck(News(title: title, check: true))
-
         navigationController?.pushViewController(newsInformation, animated: true)
     }
 
@@ -140,33 +127,25 @@ extension AllNewsViewController: UITableViewDelegate, UITableViewDataSource, UIS
                                                     for: indexPath) as? NewsTableViewCell
         {
             var newsSearch = (search.isActive) ? searchArray[indexPath.row] : newsArray[indexPath.row]
-//            func checkNews() -> Bool {
-//                newsSearch.check = false
-//                for i in checkNewsArray {
-//                    for a in newsArray{
-//                        print("💢\(String(describing: a.title)) \(String(describing: i.title))")
-//                        if a.title == i.title {
-//                            newsSearch.check = true
-//                            
-//                        }
-//                    }
-//                }
-               
-//            }
 
             let url = NSURL(string: shareImage[indexPath.row] as! String)
             let data = NSData(contentsOf: url! as URL)
             let image = UIImage(data: data! as Data)
             let images = image
 
-            
-            
-            cell.set(newsSearch.title ?? " ", newsSearch.date ?? "", (images ?? UIImage(systemName: "icloud.slash"))!, newsSearch.check ?? false)
-//            if indexPath.row % 2 == 0 {
             cell.backgroundColor = UIColor(white: 1, alpha: 0)
-//            } else {
-//                cell.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
-//            }
+
+            DispatchQueue.main.async { [self] in
+                for i in checkNewsArray {
+                    if i.title == newsSearch.title {
+                        newsSearch.check = true
+                        cell.backgroundColor = UIColor(white: 0.5, alpha: 0.1)
+                        cell.reloadInputViews()
+                    }
+                }
+            }
+
+            cell.set(newsSearch.title ?? " ", newsSearch.date ?? "", (images ?? UIImage(systemName: "icloud.slash"))!, newsSearch.check ?? false)
 
             return cell
         }
